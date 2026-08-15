@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Home - NASA Natural Events Tracker{% endblock %}
+
+{% block content %}
+    <h2>Welcome</h2>
+
+    <p>
+        This application shows natural events such as wildfires, storms, floods and
+        volcanoes using live data from NASA's Earth Observatory Natural Event Tracker
+        (EONET) API.
+    </p>
+
+    <p>
+        Use the browse page to look through current events and filter them by category,
+        status and how many days back to search.
+    </p>
+
+    <p><a href="{{ url_for('browse') }}">Browse events</a></p>
+{% endblock %}

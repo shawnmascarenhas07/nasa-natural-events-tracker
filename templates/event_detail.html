@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {% if event %}{{ event.title }}{% else %}Event{% endif %} - NASA Natural Events Tracker
+{% endblock %}
+
+{% block content %}
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% else %}
+        <h2>{{ event.title }}</h2>
+
+        <table>
+            <tr>
+                <th>Category</th>
+                <td>{{ event.category }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ event.status }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if event.event_date %}{{ event.event_date }}{% else %}Not provided{% endif %}</td>
+            </tr>
+            {# Checking for none rather than truth, because a coordinate can legitimately be 0. #}
+            <tr>
+                <th>Latitude</th>
+                <td>{% if event.latitude is not none %}{{ event.latitude }}{% else %}Not provided{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{% if event.longitude is not none %}{{ event.longitude }}{% else %}Not provided{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Magnitude</th>
+                <td>
+                    {% if event.magnitude is not none %}
+                        {{ event.magnitude }}{% if event.mag_unit %} {{ event.mag_unit }}{% endif %}
+                    {% else %}
+                        Not provided by NASA for this event
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Source</th>
+                <td>
+                    {% if event.source_url %}
+                        <a href="{{ event.source_url }}">{{ event.source_url }}</a>
+                    {% else %}
+                        Not provided
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+
+        {% if is_saved %}
+            <p><span class="saved">Saved to your watch list</span></p>
+        {% else %}
+            <form method="post" action="{{ url_for('watch_add', eonet_id=event.get_eonet_id()) }}">
+                <button type="submit">Add to Watch List</button>
+            </form>
+        {% endif %}
+    {% endif %}
+
+    <p><a href="{{ url_for('browse') }}">Back to browse</a></p>
+{% endblock %}

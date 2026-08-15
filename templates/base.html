@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}NASA Natural Events Tracker{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>NASA Natural Events Tracker</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('browse') }}">Browse events</a>
+            <a href="{{ url_for('watchlist') }}">Watch list</a>
+        </nav>
+    </header>
+
+    <main>
+        {% for message in get_flashed_messages() %}
+            <p class="flash">{{ message }}</p>
+        {% endfor %}
+
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

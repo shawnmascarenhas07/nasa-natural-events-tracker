@@ -1,0 +1,9 @@
+events.db
+
+reference_docs/
+
+__pycache__/
+*.pyc
+
+.venv/
+venv/

@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #222222;
+}
+
+header {
+    background-color: #1b3a5c;
+    color: #ffffff;
+    padding: 15px 20px;
+}
+
+header h1 {
+    margin: 0 0 10px 0;
+    font-size: 22px;
+}
+
+nav a {
+    color: #ffffff;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form label {
+    margin-right: 5px;
+}
+
+form select,
+form input,
+form textarea {
+    margin-right: 15px;
+    padding: 4px;
+}
+
+/* Buttons inside table cells should not add the spacing the filter form uses. */
+td form {
+    display: inline;
+    margin-bottom: 0;
+}
+
+.saved {
+    color: #1b6b1b;
+    font-weight: bold;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    border: 1px solid #cccccc;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #eeeeee;
+}
+
+.flash {
+    background-color: #dff0d8;
+    border: 1px solid #4a934a;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.error {
+    background-color: #f8d7da;
+    border: 1px solid #b02a37;
+    padding: 10px;
+}

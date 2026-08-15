@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Edit note - NASA Natural Events Tracker{% endblock %}
+
+{% block content %}
+    <h2>Edit note</h2>
+
+    <p>Event: {{ saved["title"] }}</p>
+
+    <form method="post" action="{{ url_for('watch_note', row_id=saved['id']) }}">
+        <label for="note">Your note</label><br>
+        <textarea name="note" id="note" rows="4" cols="60">{{ saved["note"] }}</textarea><br>
+        <button type="submit">Save note</button>
+    </form>
+
+    <p><a href="{{ url_for('watchlist') }}">Back to watch list</a></p>
+{% endblock %}
