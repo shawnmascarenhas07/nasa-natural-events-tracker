@@ -78,3 +78,7 @@ The main classes are in models.py.
 - Some NASA events do not provide magnitude or coordinates.
 - Group D and Group E were optional and are not implemented.
 - The app needs internet to load live NASA data.
+
+## Development assistance
+
+AI assistance was used during development for planning, implementation support, review, and testing.
